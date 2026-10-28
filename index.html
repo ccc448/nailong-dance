@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>奶龙跳舞 🐉</title>
+<style>
+  html,body{margin:0;height:100%;overflow:hidden;font-family:system-ui,"PingFang SC","Microsoft YaHei",sans-serif}
+  body{background:linear-gradient(160deg,#ffe9f3 0%,#fff3d1 45%,#d9f1ff 100%);background-size:200% 200%;animation:bg 12s ease-in-out infinite;display:flex;align-items:center;justify-content:center;flex-direction:column;-webkit-tap-highlight-color:transparent;user-select:none}
+  @keyframes bg{0%,100%{background-position:0 0}50%{background-position:100% 100%}}
+  h1{position:absolute;top:3vh;margin:0;font-size:clamp(22px,5vw,40px);color:#e8913a;text-shadow:0 2px 0 #fff,0 4px 10px #ffd08a;letter-spacing:4px}
+  #stage{width:min(92vw,78vh,640px);height:min(92vw,78vh,640px);position:relative}
+  svg{width:100%;height:100%;overflow:visible}
+  .hint{position:absolute;bottom:3vh;color:#c9854a;font-size:14px;opacity:.85}
+  .float{position:absolute;bottom:-10%;font-size:28px;pointer-events:none;animation:up linear forwards}
+  @keyframes up{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:1}100%{transform:translateY(-115vh) rotate(40deg);opacity:0}}
+  /* dance */
+  #all{transform-origin:300px 520px;animation:hop .6s ease-in-out infinite}
+  @keyframes hop{0%,100%{transform:translateY(0) rotate(-5deg)}25%{transform:translateY(-34px) rotate(0)}50%{transform:translateY(0) rotate(5deg)}75%{transform:translateY(-34px) rotate(0)}}
+  #body{transform-origin:300px 500px;animation:sway 1.2s ease-in-out infinite}
+  @keyframes sway{0%,100%{transform:scale(1.03,.96)}50%{transform:scale(.97,1.04)}}
+  #head{transform-origin:300px 300px;animation:nod 1.2s ease-in-out infinite}
+  @keyframes nod{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+  #armL{transform-origin:240px 430px;animation:armL 1.2s ease-in-out infinite}
+  #armR{transform-origin:360px 430px;animation:armR 1.2s ease-in-out infinite}
+  @keyframes armL{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(115deg)}}
+  @keyframes armR{0%,100%{transform:rotate(-115deg)}50%{transform:rotate(5deg)}}
+  #tail{transform-origin:380px 480px;animation:tail .6s ease-in-out infinite}
+  @keyframes tail{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(14deg)}}
+  #footL{transform-origin:255px 520px;animation:footL 1.2s ease-in-out infinite}
+  #footR{transform-origin:345px 520px;animation:footR 1.2s ease-in-out infinite}
+  @keyframes footL{0%,100%{transform:translateY(0)}25%{transform:translateY(-16px)}50%{transform:translateY(0)}}
+  @keyframes footR{0%,50%{transform:translateY(0)}75%{transform:translateY(-16px)}100%{transform:translateY(0)}}
+  .eye{transform-box:fill-box;transform-origin:center;animation:blink 3.2s infinite}
+  @keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.08)}}
+  #mouth{transform-origin:300px 345px;animation:mouth .6s ease-in-out infinite}
+  @keyframes mouth{0%,100%{transform:scaleY(.55)}50%{transform:scaleY(1.1)}}
+  #shadow{transform-origin:300px 540px;animation:sh .6s ease-in-out infinite}
+  @keyframes sh{0%,50%,100%{transform:scale(1);opacity:.25}25%,75%{transform:scale(.78);opacity:.14}}
+  #sound{position:absolute;top:2vh;right:3vw;font-size:26px;cursor:pointer;background:#fff8;border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center}
+  @media (prefers-reduced-motion:reduce){#all{animation-duration:1.8s}}
+</style>
+</head>
+<body>
+<h1>奶龙跳舞 🐉</h1>
+<div id="sound" title="开/关声音">🔇</div>
+<div id="stage">
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-label="奶龙在跳舞">
+  <defs>
+    <radialGradient id="g" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#fff0a0"/><stop offset="1" stop-color="#ffd23f"/></radialGradient>
+    <radialGradient id="belly" cx="50%" cy="40%" r="70%"><stop offset="0" stop-color="#fffbe0"/><stop offset="1" stop-color="#ffec9a"/></radialGradient>
+  </defs>
+  <ellipse id="shadow" cx="300" cy="545" rx="130" ry="16" fill="#8a5a1a"/>
+  <g id="all">
+    <g id="tail"><path d="M370 470 Q450 470 470 410 Q480 380 455 395 Q440 440 375 440Z" fill="url(#g)" stroke="#e8a317" stroke-width="5" stroke-linejoin="round"/>
+      <circle cx="462" cy="398" r="9" fill="#ffb43a"/></g>
+    <g id="footL"><ellipse cx="250" cy="525" rx="42" ry="24" fill="url(#g)" stroke="#e8a317" stroke-width="5"/><circle cx="232" cy="535" r="5" fill="#fff4b0"/><circle cx="250" cy="540" r="5" fill="#fff4b0"/><circle cx="268" cy="535" r="5" fill="#fff4b0"/></g>
+    <g id="footR"><ellipse cx="350" cy="525" rx="42" ry="24" fill="url(#g)" stroke="#e8a317" stroke-width="5"/><circle cx="332" cy="535" r="5" fill="#fff4b0"/><circle cx="350" cy="540" r="5" fill="#fff4b0"/><circle cx="368" cy="535" r="5" fill="#fff4b0"/></g>
+    <g id="body">
+      <ellipse cx="300" cy="440" rx="118" ry="95" fill="url(#g)" stroke="#e8a317" stroke-width="5"/>
+      <ellipse cx="300" cy="455" rx="72" ry="62" fill="url(#belly)"/>
+    </g>
+    <g id="head"><g transform="translate(300 300) scale(.86) translate(-300 -300) translate(0 -5)">
+      <!-- back spikes / horns -->
+      <path d="M215 190 L235 135 L265 180Z" fill="#ffb43a" stroke="#e8a317" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M335 180 L365 135 L385 190Z" fill="#ffb43a" stroke="#e8a317" stroke-width="5" stroke-linejoin="round"/>
+      <ellipse cx="300" cy="300" rx="170" ry="140" fill="url(#g)" stroke="#e8a317" stroke-width="5"/>
+      <ellipse cx="240" cy="220" rx="46" ry="22" fill="#fff" opacity=".35" transform="rotate(-25 240 220)"/>
+      <!-- cheeks -->
+      <ellipse cx="190" cy="335" rx="30" ry="20" fill="#ff9aa8" opacity=".7"/>
+      <ellipse cx="410" cy="335" rx="30" ry="20" fill="#ff9aa8" opacity=".7"/>
+      <!-- eyes -->
+      <g class="eye"><ellipse cx="235" cy="295" rx="22" ry="28" fill="#2b1b10"/><circle cx="243" cy="284" r="8" fill="#fff"/><circle cx="228" cy="306" r="4" fill="#fff"/></g>
+      <g class="eye"><ellipse cx="365" cy="295" rx="22" ry="28" fill="#2b1b10"/><circle cx="373" cy="284" r="8" fill="#fff"/><circle cx="358" cy="306" r="4" fill="#fff"/></g>
+      <!-- nostrils -->
+      <circle cx="288" cy="322" r="3.5" fill="#c98a1a"/><circle cx="312" cy="322" r="3.5" fill="#c98a1a"/>
+      <!-- mouth -->
+      <g id="mouth"><path d="M258 345 Q300 345 342 345 Q335 395 300 395 Q265 395 258 345Z" fill="#7a2a2a" stroke="#4a1515" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M278 380 Q300 360 322 380 Q300 396 278 380Z" fill="#ff8a8a"/></g>
+    </g></g>
+    <g id="armL"><path d="M235 415 Q175 420 150 465 Q142 488 168 484 Q205 470 245 450Z" fill="url(#g)" stroke="#e8a317" stroke-width="5" stroke-linejoin="round"/></g>
+    <g id="armR"><path d="M365 415 Q425 420 450 465 Q458 488 432 484 Q395 470 355 450Z" fill="url(#g)" stroke="#e8a317" stroke-width="5" stroke-linejoin="round"/></g>
+  </g>
+</svg>
+</div>
+<div class="hint">点一下屏幕，听奶龙打拍子 ♪</div>
+<script>
+// floating decorations
+const sym=['⭐','🎵','♥','✨','🎶','💛','★'];
+function spawn(){
+  const e=document.createElement('div');e.className='float';
+  e.textContent=sym[Math.random()*sym.length|0];
+  e.style.left=Math.random()*96+'vw';
+  e.style.fontSize=(18+Math.random()*26)+'px';
+  e.style.animationDuration=(6+Math.random()*6)+'s';
+  document.body.appendChild(e);setTimeout(()=>e.remove(),12500);
+}
+setInterval(spawn,450);for(let i=0;i<8;i++)setTimeout(spawn,i*120);
+
+// WebAudio beat (muted by default; click toggles)
+let ctx=null,on=false,timer=null,step=0;
+const btn=document.getElementById('sound');
+function tone(f,t,d,type,v){const o=ctx.createOscillator(),g=ctx.createGain();o.type=type;o.frequency.value=f;
+  g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g).connect(ctx.destination);o.start(t);o.stop(t+d)}
+const melody=[523,659,784,659,523,659,784,1047];
+function tick(){const t=ctx.currentTime+.02;
+  // kick on beat
+  const o=ctx.createOscillator(),g=ctx.createGain();o.frequency.setValueAtTime(150,t);o.frequency.exponentialRampToValueAtTime(40,t+.15);
+  g.gain.setValueAtTime(.5,t);g.gain.exponentialRampToValueAtTime(.001,t+.18);o.connect(g).connect(ctx.destination);o.start(t);o.stop(t+.2);
+  tone(melody[step%8],t,.25,'triangle',.18);step++}
+function toggle(e){
+  if(e)e.stopPropagation();
+  if(!ctx)ctx=new (window.AudioContext||window.webkitAudioContext)();
+  on=!on;btn.textContent=on?'🔊':'🔇';
+  if(on){ctx.resume();step=0;tick();timer=setInterval(tick,300)}else{clearInterval(timer)}
+}
+document.body.addEventListener('click',()=>{ if(!on) toggle(); });
+btn.addEventListener('click',toggle);
+</script>
+</body>
+</html>
