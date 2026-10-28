@@ -19,23 +19,25 @@
   @keyframes hop{0%,100%{transform:translateY(0) rotate(-5deg)}25%{transform:translateY(-34px) rotate(0)}50%{transform:translateY(0) rotate(5deg)}75%{transform:translateY(-34px) rotate(0)}}
   #body{transform-origin:300px 500px;animation:sway 1.2s ease-in-out infinite}
   @keyframes sway{0%,100%{transform:scale(1.03,.96)}50%{transform:scale(.97,1.04)}}
-  #head{transform-origin:300px 300px;animation:nod 1.2s ease-in-out infinite}
+  #head{transform-origin:300px 410px;animation:nod 1.2s ease-in-out infinite}
   @keyframes nod{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
-  #armL{transform-origin:240px 430px;animation:armL 1.2s ease-in-out infinite}
-  #armR{transform-origin:360px 430px;animation:armR 1.2s ease-in-out infinite}
+  #armL{transform-origin:222px 445px;animation:armL 1.2s ease-in-out infinite}
+  #armR{transform-origin:378px 445px;animation:armR 1.2s ease-in-out infinite}
   @keyframes armL{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(115deg)}}
   @keyframes armR{0%,100%{transform:rotate(-115deg)}50%{transform:rotate(5deg)}}
-  #tail{transform-origin:380px 480px;animation:tail .6s ease-in-out infinite}
+  #tail{transform-origin:385px 480px;animation:tail .6s ease-in-out infinite}
   @keyframes tail{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(14deg)}}
-  #footL{transform-origin:255px 520px;animation:footL 1.2s ease-in-out infinite}
-  #footR{transform-origin:345px 520px;animation:footR 1.2s ease-in-out infinite}
+  #footL{transform-origin:252px 530px;animation:footL 1.2s ease-in-out infinite}
+  #footR{transform-origin:348px 530px;animation:footR 1.2s ease-in-out infinite}
   @keyframes footL{0%,100%{transform:translateY(0)}25%{transform:translateY(-16px)}50%{transform:translateY(0)}}
   @keyframes footR{0%,50%{transform:translateY(0)}75%{transform:translateY(-16px)}100%{transform:translateY(0)}}
   .eye{transform-box:fill-box;transform-origin:center;animation:blink 3.2s infinite}
   @keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.08)}}
-  #mouth{transform-origin:300px 345px;animation:mouth .6s ease-in-out infinite}
-  @keyframes mouth{0%,100%{transform:scaleY(.55)}50%{transform:scaleY(1.1)}}
-  #shadow{transform-origin:300px 540px;animation:sh .6s ease-in-out infinite}
+  #mouth{transform-origin:300px 320px;animation:mouth .6s ease-in-out infinite}
+  @keyframes mouth{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1.1)}}
+  #belly{transform-box:fill-box;transform-origin:center;animation:duang .6s ease-in-out infinite}
+  @keyframes duang{0%,50%,100%{transform:scale(1)}25%,75%{transform:scale(1.07,.94)}}
+  #shadow{transform-origin:300px 560px;animation:sh .6s ease-in-out infinite}
   @keyframes sh{0%,50%,100%{transform:scale(1);opacity:.25}25%,75%{transform:scale(.78);opacity:.14}}
   #sound{position:absolute;top:2vh;right:3vw;font-size:26px;cursor:pointer;background:#fff8;border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center}
   @media (prefers-reduced-motion:reduce){#all{animation-duration:1.8s}}
@@ -47,39 +49,59 @@
 <div id="stage">
 <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-label="奶龙在跳舞">
   <defs>
-    <radialGradient id="g" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#fff0a0"/><stop offset="1" stop-color="#ffd23f"/></radialGradient>
-    <radialGradient id="belly" cx="50%" cy="40%" r="70%"><stop offset="0" stop-color="#fffbe0"/><stop offset="1" stop-color="#ffec9a"/></radialGradient>
-  </defs>
-  <ellipse id="shadow" cx="300" cy="545" rx="130" ry="16" fill="#8a5a1a"/>
-  <g id="all">
-    <g id="tail"><path d="M370 470 Q450 470 470 410 Q480 380 455 395 Q440 440 375 440Z" fill="url(#g)" stroke="#e8a317" stroke-width="5" stroke-linejoin="round"/>
-      <circle cx="462" cy="398" r="9" fill="#ffb43a"/></g>
-    <g id="footL"><ellipse cx="250" cy="525" rx="42" ry="24" fill="url(#g)" stroke="#e8a317" stroke-width="5"/><circle cx="232" cy="535" r="5" fill="#fff4b0"/><circle cx="250" cy="540" r="5" fill="#fff4b0"/><circle cx="268" cy="535" r="5" fill="#fff4b0"/></g>
-    <g id="footR"><ellipse cx="350" cy="525" rx="42" ry="24" fill="url(#g)" stroke="#e8a317" stroke-width="5"/><circle cx="332" cy="535" r="5" fill="#fff4b0"/><circle cx="350" cy="540" r="5" fill="#fff4b0"/><circle cx="368" cy="535" r="5" fill="#fff4b0"/></g>
-    <g id="body">
-      <ellipse cx="300" cy="440" rx="118" ry="95" fill="url(#g)" stroke="#e8a317" stroke-width="5"/>
-      <ellipse cx="300" cy="455" rx="72" ry="62" fill="url(#belly)"/>
+    <radialGradient id="g" cx="38%" cy="28%" r="85%"><stop offset="0" stop-color="#ffec6e"/><stop offset=".55" stop-color="#ffd42a"/><stop offset="1" stop-color="#fbbf14"/></radialGradient>
+    <radialGradient id="belly" cx="50%" cy="38%" r="70%"><stop offset="0" stop-color="#fffbe6"/><stop offset="1" stop-color="#fff0b8"/></radialGradient>
+    <radialGradient id="iris" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#8be06a"/><stop offset="1" stop-color="#2f9a3f"/></radialGradient>
+    <radialGradient id="spine" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#d8c93a"/><stop offset="1" stop-color="#a99a1c"/></radialGradient>
+    <radialGradient id="palm" cx="50%" cy="40%" r="70%"><stop offset="0" stop-color="#ffb5b5"/><stop offset="1" stop-color="#ff8f9a"/></radialGradient>
+    <!-- hand: mitten facing outward-down-left, pink palm, brown claw tips -->
+    <g id="hand">
+      <circle cx="160" cy="476" r="25" fill="url(#g)" stroke="#d9961c" stroke-width="3.5"/>
+      <ellipse cx="164" cy="478" rx="13" ry="12" fill="url(#palm)"/>
+      <circle cx="154" cy="468" r="4.5" fill="#ffa3ab"/><circle cx="150" cy="479" r="4.5" fill="#ffa3ab"/><circle cx="156" cy="490" r="4.5" fill="#ffa3ab"/>
+      <ellipse cx="139" cy="466" rx="5.5" ry="3.8" fill="#8a5a2b" transform="rotate(-25 139 466)"/>
+      <ellipse cx="135" cy="478" rx="5.5" ry="3.8" fill="#8a5a2b"/>
+      <ellipse cx="140" cy="491" rx="5.5" ry="3.8" fill="#8a5a2b" transform="rotate(25 140 491)"/>
     </g>
-    <g id="head"><g transform="translate(300 300) scale(.86) translate(-300 -300) translate(0 -5)">
-      <!-- back spikes / horns -->
-      <path d="M215 190 L235 135 L265 180Z" fill="#ffb43a" stroke="#e8a317" stroke-width="5" stroke-linejoin="round"/>
-      <path d="M335 180 L365 135 L385 190Z" fill="#ffb43a" stroke="#e8a317" stroke-width="5" stroke-linejoin="round"/>
-      <ellipse cx="300" cy="300" rx="170" ry="140" fill="url(#g)" stroke="#e8a317" stroke-width="5"/>
-      <ellipse cx="240" cy="220" rx="46" ry="22" fill="#fff" opacity=".35" transform="rotate(-25 240 220)"/>
-      <!-- cheeks -->
-      <ellipse cx="190" cy="335" rx="30" ry="20" fill="#ff9aa8" opacity=".7"/>
-      <ellipse cx="410" cy="335" rx="30" ry="20" fill="#ff9aa8" opacity=".7"/>
-      <!-- eyes -->
-      <g class="eye"><ellipse cx="235" cy="295" rx="22" ry="28" fill="#2b1b10"/><circle cx="243" cy="284" r="8" fill="#fff"/><circle cx="228" cy="306" r="4" fill="#fff"/></g>
-      <g class="eye"><ellipse cx="365" cy="295" rx="22" ry="28" fill="#2b1b10"/><circle cx="373" cy="284" r="8" fill="#fff"/><circle cx="358" cy="306" r="4" fill="#fff"/></g>
-      <!-- nostrils -->
-      <circle cx="288" cy="322" r="3.5" fill="#c98a1a"/><circle cx="312" cy="322" r="3.5" fill="#c98a1a"/>
-      <!-- mouth -->
-      <g id="mouth"><path d="M258 345 Q300 345 342 345 Q335 395 300 395 Q265 395 258 345Z" fill="#7a2a2a" stroke="#4a1515" stroke-width="4" stroke-linejoin="round"/>
-        <path d="M278 380 Q300 360 322 380 Q300 396 278 380Z" fill="#ff8a8a"/></g>
-    </g></g>
-    <g id="armL"><path d="M235 415 Q175 420 150 465 Q142 488 168 484 Q205 470 245 450Z" fill="url(#g)" stroke="#e8a317" stroke-width="5" stroke-linejoin="round"/></g>
-    <g id="armR"><path d="M365 415 Q425 420 450 465 Q458 488 432 484 Q395 470 355 450Z" fill="url(#g)" stroke="#e8a317" stroke-width="5" stroke-linejoin="round"/></g>
+    <g id="foot">
+      <ellipse cx="0" cy="0" rx="44" ry="25" fill="url(#g)" stroke="#d9961c" stroke-width="3.5"/>
+      <ellipse cx="0" cy="3" rx="19" ry="10" fill="url(#palm)"/>
+      <circle cx="-14" cy="-3" r="4.5" fill="#ffa3ab"/><circle cx="0" cy="-6" r="4.5" fill="#ffa3ab"/><circle cx="14" cy="-3" r="4.5" fill="#ffa3ab"/>
+      <ellipse cx="-24" cy="17" rx="5.5" ry="4" fill="#8a5a2b"/><ellipse cx="0" cy="22" rx="5.5" ry="4" fill="#8a5a2b"/><ellipse cx="24" cy="17" rx="5.5" ry="4" fill="#8a5a2b"/>
+    </g>
+  </defs>
+  <ellipse id="shadow" cx="300" cy="560" rx="135" ry="15" fill="#8a5a1a"/>
+  <g id="all">
+    <!-- short thick tail, same yellow, blunt end, about one leg long -->
+    <g id="tail"><path d="M375 458 Q440 462 478 502 Q494 526 470 531 Q428 533 380 508Z" fill="url(#g)" stroke="#d9961c" stroke-width="3.5" stroke-linejoin="round"/>
+      <ellipse cx="445" cy="490" rx="26" ry="8" fill="#fff6a8" opacity=".5" transform="rotate(30 445 490)"/></g>
+    <g id="footL"><use href="#foot" x="252" y="530"/></g>
+    <g id="footR"><use href="#foot" x="348" y="530"/></g>
+    <g id="body">
+      <ellipse cx="300" cy="442" rx="108" ry="92" fill="url(#g)" stroke="#d9961c" stroke-width="3.5"/>
+      <g id="belly"><ellipse cx="300" cy="458" rx="80" ry="70" fill="url(#belly)" stroke="#f1d37c" stroke-width="2.5"/>
+        <ellipse cx="272" cy="425" rx="26" ry="11" fill="#fff" opacity=".55" transform="rotate(-25 272 425)"/></g>
+    </g>
+    <g id="head">
+      <!-- 3 olive-yellow flat back spines peeking over the crown -->
+      <ellipse cx="238" cy="138" rx="20" ry="12" fill="url(#spine)" stroke="#8f8216" stroke-width="2.5" transform="rotate(-32 238 138)"/>
+      <ellipse cx="362" cy="138" rx="20" ry="12" fill="url(#spine)" stroke="#8f8216" stroke-width="2.5" transform="rotate(32 362 138)"/>
+      <ellipse cx="300" cy="118" rx="28" ry="14" fill="url(#spine)" stroke="#8f8216" stroke-width="2.5"/>
+      <ellipse cx="300" cy="275" rx="166" ry="141" fill="url(#g)" stroke="#d9961c" stroke-width="3.5"/>
+      <ellipse cx="232" cy="190" rx="52" ry="22" fill="#fff" opacity=".4" transform="rotate(-28 232 190)"/>
+      <!-- eyes: white sclera, green iris, dark pupil, highlight -->
+      <g class="eye"><ellipse cx="262" cy="262" rx="31" ry="35" fill="#fff" stroke="#d9a43a" stroke-width="2.5"/>
+        <circle cx="264" cy="266" r="22" fill="url(#iris)"/><circle cx="264" cy="266" r="12" fill="#1f2a1c"/>
+        <circle cx="272" cy="256" r="6.5" fill="#fff"/><circle cx="257" cy="275" r="3" fill="#fff" opacity=".9"/></g>
+      <g class="eye"><ellipse cx="338" cy="262" rx="31" ry="35" fill="#fff" stroke="#d9a43a" stroke-width="2.5"/>
+        <circle cx="336" cy="266" r="22" fill="url(#iris)"/><circle cx="336" cy="266" r="12" fill="#1f2a1c"/>
+        <circle cx="344" cy="256" r="6.5" fill="#fff"/><circle cx="329" cy="275" r="3" fill="#fff" opacity=".9"/></g>
+      <!-- no nose, no ears, no horns. mouth: small smile that opens into a big grin -->
+      <g id="mouth"><path d="M254 318 Q300 334 346 318 Q342 370 300 370 Q258 370 254 318Z" fill="#8e2f35" stroke="#6b1d22" stroke-width="3" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+        <ellipse cx="300" cy="360" rx="26" ry="11" fill="#ff8f9a"/></g>
+    </g>
+    <g id="armL"><ellipse cx="196" cy="456" rx="42" ry="22" fill="url(#g)" stroke="#d9961c" stroke-width="3.5" transform="rotate(28 196 456)"/><use href="#hand"/></g>
+    <g id="armR"><g transform="translate(600 0) scale(-1 1)"><ellipse cx="196" cy="456" rx="42" ry="22" fill="url(#g)" stroke="#d9961c" stroke-width="3.5" transform="rotate(28 196 456)"/><use href="#hand"/></g></g>
   </g>
 </svg>
 </div>
